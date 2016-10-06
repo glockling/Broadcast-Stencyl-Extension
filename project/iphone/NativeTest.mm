@@ -1,29 +1,28 @@
-#include <NativeTest.h>
-#import <UIKit/UIKit.h>
-#import <CoreFoundation/CoreFoundation.h>
+#include <Broadcast.h>
+#import <Replaykit/Replaykit.h>
 
-@interface nativetest
+@interface Broadcast
 @end
 
-@implementation nativetest
+@implementation Broadcast
 
 @end
 
-using namespace nativetest;
+using namespace Broadcast;
 
-namespace nativetest
+namespace Broadcast
 {
     
-    static nativetest *Native;
+    static Broadcast *ReplaykitBroadcast;
     
     void showSystemAlert(const char *title, const char *message)
     {
-        if(Native == NULL)
+        if(ReplaykitBroadcast == NULL)
         {
-            Native = [nativetest alloc];
+            ReplaykitBroadcast = [ReplaykitBroadcast alloc];
         }
         
-    UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"No Network!" message:@"Please connect to the internet and restart the game." delegate:Native cancelButtonTitle: @"OK" otherButtonTitles:nil];
+    UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"No Network!" message:@"Please connect to the internet and restart the game." delegate:ReplaykitBroadcast cancelButtonTitle: @"OK" otherButtonTitles:nil];
     
         [alert show];
 
